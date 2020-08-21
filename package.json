@@ -1,0 +1,20 @@
+{
+  "name": "org.wiyi.gitalk-anonmously-comment",
+  "version": "0.0.1",
+  "description": "add anonmously comment for gitalk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gitalk"
+  ],
+  "author": "bigbyto",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
