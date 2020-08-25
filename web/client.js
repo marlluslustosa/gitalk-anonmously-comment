@@ -19,7 +19,6 @@ module.exports = {
 			const params = new URLSearchParams(query)
 			fullUrl = `${url}?${params}`
 		}
-		console.log(fullUrl)
 		return fetch(fullUrl, {
 			method: 'get',
 			headers: {

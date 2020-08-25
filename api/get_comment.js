@@ -1,4 +1,3 @@
-const config = require('../config');
 const client = require('../web/client')
 const allowCROS = require('../web/cros')
 
