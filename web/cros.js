@@ -9,4 +9,5 @@ module.exports = function(res) {
 		'Access-Control-Allow-Headers',
 		'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
 	)
+	res.setHeader('Content-Type','application/json;charset=UTF-8')
 }

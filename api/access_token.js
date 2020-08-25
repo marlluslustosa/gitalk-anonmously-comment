@@ -13,8 +13,6 @@ module.exports = (req, res) => {
 	}
 
 	let redirectURI = req.query.origin || config.origin;
-
-	let hasError = false;
 	getAccessToken(code)
 		.then(res => res.json())
 		.then(data => {
@@ -22,6 +20,7 @@ module.exports = (req, res) => {
 				return Promise.reject(data)
 			}
 			const location = redirectURI + '?access_token=' + data.access_token
+			console.log('success:' + redirectURI)
 			res.writeHead(301, { Location: location }).end();
 		})
 		.catch(err => {
@@ -29,6 +28,7 @@ module.exports = (req, res) => {
 				return res.send(err.error_description);
 			}
 			
+			console.log('failure:' + redirectURI)
 			res.writeHead(301, { Location: redirectURI }).end();
 		})
 }

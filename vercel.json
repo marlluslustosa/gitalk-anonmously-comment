@@ -1,0 +1,12 @@
+{
+	"rewrites": [
+		{ 
+			"source": "/repos/:owner/:repo/issues", 
+			"destination": "/api/issue.js" 
+		},
+		{ 
+			"source": "repos/:owner/:repo/issues/:issueId/comments", 
+			"destination": "/api/get-comment.js" 
+		}
+	]
+}
