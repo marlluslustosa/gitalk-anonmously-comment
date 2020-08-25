@@ -6,7 +6,7 @@
 		},
 		{ 
 			"source": "repos/:owner/:repo/issues/:id/comments", 
-			"destination": "/api/get_comment.js" 
+			"destination": "/api/my_comment.js" 
 		}
 	]
 }

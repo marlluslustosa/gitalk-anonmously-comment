@@ -2,7 +2,7 @@ const client = require('../web/client')
 const allowCROS = require('../web/cros')
 
 module.exports = (req, res) => {
-	const url = 'https://api.github.com' + req.url
+	const url = `https://api.github.com${req.url}`
 	allowCROS(res)
 
 	client.get(url).then(info => {
