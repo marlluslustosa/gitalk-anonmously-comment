@@ -5,8 +5,8 @@
 			"destination": "/api/issue.js" 
 		},
 		{ 
-			"source": "repos/:owner/:repo/issues/:id/comments", 
-			"destination": "/api/my_comment.js" 
+			"source": "/repos/:owner/:repo/issues/:id/comments", 
+			"destination": "/api/get_comment.js" 
 		}
 	]
 }

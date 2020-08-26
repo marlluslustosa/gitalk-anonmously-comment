@@ -2374,7 +2374,6 @@ exports.default = {
 		if (data) {
 			try {
 				var cache = JSON.parse(data);
-				console.log(cache);
 				var epxire = cache.epxire || -1;
 				if (epxire === -1 || epxire >= new Date().getTime() / 1000) {
 					return cache.data;
@@ -3308,6 +3307,7 @@ var GitalkComponent = function (_Component) {
             sort: 'comments',
             direction: _this.state.pagerDirection === 'last' ? 'asc' : 'desc'
           },
+          proxy: true,
           cache: _this.options.cache.comments || { enable: true, ttl: 600 }
         }).then(function (res) {
           var _this$state = _this.state,
@@ -3751,6 +3751,7 @@ var GitalkComponent = function (_Component) {
           labels: labels.concat(id).join(','),
           t: Date.now()
         },
+        proxy: true,
         cache: this.options.cache.issue || { enable: true, ttl: -1 }
       }).then(function (res) {
         var createIssueManually = _this5.options.createIssueManually;
@@ -3847,7 +3848,7 @@ var GitalkComponent = function (_Component) {
 
       var commentsUrl = '';
       return this.getIssue().then(function (issue) {
-        commentsUrl = issue.comments_url;
+        commentsUrl = issue.comments_url.replace('https://api.github.com', '');
         _webClient.client.post(issue.comments_url, {
           body: comment
         }, {
@@ -3899,7 +3900,8 @@ var GitalkComponent = function (_Component) {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       }).then(function (res) {
-        _cache2.default.removeByPrefix(postUrl);
+        var keyPrefix = postUrl.replace('https://api.github.com', '');
+        _cache2.default.removeByPrefix(keyPrefix);
         return _promise2.default.resolve(res);
       });
     }
@@ -8754,10 +8756,10 @@ function buildCacheKey(conf) {
 
   var key = conf.url + '?' + (0, _util.queryStringify)(params);
   if (key.includes("http://") || key.includes("https://")) {
-    return key;
+    return key.replace(conf.baseURL, '');
   }
 
-  return conf.baseURL + key;
+  return key;
 }
 
 webClient.interceptors.request.use(function (config) {
@@ -8769,7 +8771,7 @@ webClient.interceptors.request.use(function (config) {
       if (accessToken) {
         headers['Authorization'] = 'token ' + accessToken;
       } else {
-        if (window.GT_PROXY) {
+        if (conf.proxy && window.GT_PROXY) {
           conf.baseURL = window.GT_PROXY;
           if (conf.url.startsWith("https://api.github.com")) {
             conf.url = conf.url.replace('https://api.github.com', conf.baseURL);
