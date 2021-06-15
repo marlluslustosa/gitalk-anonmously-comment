@@ -1,8 +1,8 @@
 module.exports = {
   appId: '3b56f6c043a50d32dd82',
   appSecret: '0b0ea67ff9b13f768064aacf117643b45759b1ba',
-  origin: 'https://marllus.com', //允许跨域的域名
+  origin: 'https://00b2f7c5.myblog-bkz.pages.dev', //允许跨域的域名
   accessToken: '',
   state: 'random string',
-  redirectURI: 'https://marllus.com/api/access_token' //授权成功跳转地址
+  redirectURI: 'https://00b2f7c5.myblog-bkz.pages.dev/api/access_token' //授权成功跳转地址
 }
