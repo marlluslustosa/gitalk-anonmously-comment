@@ -5,5 +5,5 @@ module.exports = {
   accessToken: '',
   state: 'random string',
 //redirectURI: 'https://48bbf2b1.myblog-bkz.pages.dev/api/access_token' //授权成功跳转地址
-  redirectURI: 'https://gitalk-anonmously-comment-kappa.vercel.app/api/authorize' //授权成功跳转地址
+  redirectURI: 'https://gitalk-anonmously-comment-kappa.vercel.app/api/access_token' //授权成功跳转地址
 }
