@@ -4,5 +4,6 @@ module.exports = {
   origin: 'https://48bbf2b1.myblog-bkz.pages.dev', //允许跨域的域名
   accessToken: '',
   state: 'random string',
-  redirectURI: 'https://48bbf2b1.myblog-bkz.pages.dev/api/access_token' //授权成功跳转地址
+//redirectURI: 'https://48bbf2b1.myblog-bkz.pages.dev/api/access_token' //授权成功跳转地址
+  redirectURI: 'https://48bbf2b1.myblog-bkz.pages.dev' //授权成功跳转地址
 }
