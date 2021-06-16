@@ -19,5 +19,3 @@ selenium-debug.log
 dist*
 .vercel
 
-config.js
-gitalk
